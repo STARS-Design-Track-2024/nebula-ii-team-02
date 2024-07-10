@@ -40,7 +40,7 @@ module t02_register_file
     logic [31:0] register [31:0];
     logic [31:0] nxt_register [31:0];
 
-    always_ff @(posedge clk or negedge nRST) begin
+    always_ff @(posedge clk, negedge nRST) begin
         if (!nRST) begin
             for (int i = 0; i < 32; i ++) begin
                 for (int j = 0; j < 32; j++) begin
@@ -49,7 +49,7 @@ module t02_register_file
             end
         end
         else begin
-            for (int i = 1; i < 32; i++) begin
+            for (int i = 0; i < 32; i++) begin
                 register[i] <= nxt_register[i];
             end
         end
