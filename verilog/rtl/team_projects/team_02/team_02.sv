@@ -19,9 +19,9 @@ module team_02 (
     input wire [127:0] la_oenb,
 
     // 34 out of 38 GPIOs (Note: if you need up to 38 GPIO, discuss with a TA)
-    input  wire [31:0] gpio_in, // Breakout Board Pins
-    output wire [31:0] gpio_out, // Breakout Board Pins
-    output wire [31:0] gpio_oeb, // Active Low Output Enable
+    input  wire [33:0] gpio_in, // Breakout Board Pins
+    output wire [33:0] gpio_out, // Breakout Board Pins
+    output wire [33:0] gpio_oeb, // Active Low Output Enable
 
     output wire [31:0] ADR_O,
     output wire [31:0] DAT_O,
@@ -42,7 +42,7 @@ module team_02 (
 
     // All outputs must have a value even if not used
     assign la_data_out = 128'b0;
-    assign gpio_out = 32'b0; //Inputs, but set low anyways
+    assign gpio_out = 34'b0; //Inputs, but set low anyways
     assign gpio_oeb = '1;//All 1's inputs
     /*
     * Place code and sub-module instantiations here.
