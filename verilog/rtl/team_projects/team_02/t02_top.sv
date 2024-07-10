@@ -10,8 +10,8 @@ module t02_top (
   input logic busy_o,
   output logic lcd_en, lcd_rw, lcd_rs,
   output logic [7:0] lcd_data,
-  input logic [3:0] read_row,
-  output logic [3:0] scan_col
+  output logic [3:0] read_row,
+  input logic [3:0] scan_col
 
   // output logic [31:0][31:0] test_memory ,
   // output logic [31:0][31:0] test_nxt_memory 

@@ -53,8 +53,8 @@ module team_02 (
     t02_top top (.clk(clk), .nrst(nrst), .ramaddr(ramaddr), .ramstore(ramstore), 
     .Ren(Ren), .Wen(Wen), .ramload(ramload), .busy_o(busy_o), .enable(en), 
     .start_addr(start_addr), .lcd_en(gpio_out[6]), .lcd_rw(gpio_out[5]), 
-    .lcd_rs(gpio_out[0]), .lcd_data(gpio_out[14:7]), .read_row(gpio_in[23:20]), 
-    .scan_col(gpio_out[27:24]));
+    .lcd_rs(gpio_out[0]), .lcd_data(gpio_out[14:7]), .read_row(gpio_out[27:24]), 
+    .scan_col(gpio_in[23:20]));
     // add start_addr 
     // make sure all signals are connected
     t02_wishbone_manager wb(.CLK(clk), .nRST(nrst), 
@@ -76,5 +76,5 @@ module team_02 (
     assign gpio_out [19:15] = '0;
     assign gpio_out [31:28] = '0;
     assign gpio_out [23:20] = '0;
-    
+
 endmodule
