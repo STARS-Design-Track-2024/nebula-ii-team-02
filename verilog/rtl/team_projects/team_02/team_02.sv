@@ -76,4 +76,5 @@ module team_02 (
     assign gpio_out [19:15] = '0;
     assign gpio_out [31:28] = '0;
     assign gpio_out [23:20] = '0;
+    
 endmodule
