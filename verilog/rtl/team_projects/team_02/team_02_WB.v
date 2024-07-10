@@ -64,6 +64,8 @@ module team_02_WB (
 	assign	start_addr = START_ADDR_VAL_REG;
 	`WB_REG(START_ADDR_VAL_REG, 0, 32)
 
+	assign IRQ = '0;
+
 	team_02 instance_to_wrap (
 		.clk(clk),
 		.nrst(nrst),
