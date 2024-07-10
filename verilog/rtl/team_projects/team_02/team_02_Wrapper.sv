@@ -98,12 +98,12 @@ module team_02_Wrapper (
         .la_data_in(la_data_in),
         .la_data_out(la_data_out),
         .la_oenb(la_oenb),
-        // .gpio_in({gpio_in[37:5], gpio_in[0]}), //In general, GPIO 4:1 should not be used but can be. Ask a TA if needed
-        // .gpio_out({gpio_out[37:5], gpio_out[0]}), //In general, GPIO 4:1 should not be used but can be. Ask a TA if needed
-        // .gpio_oeb({gpio_oeb[37:5], gpio_oeb[0]}), //In general, GPIO 4:1 should not be used but can be. Ask a TA if needed
-        .gpio_in({gpio_in[35:5], gpio_in[0]}), //In general, GPIO 4:1 should not be used but can be. Ask a TA if needed
-        .gpio_out({gpio_out[35:5], gpio_out[0]}), //In general, GPIO 4:1 should not be used but can be. Ask a TA if needed
-        .gpio_oeb({gpio_oeb[35:5], gpio_oeb[0]}), //In general, GPIO 4:1 should not be used but can be. Ask a TA if needed
+        .gpio_in({gpio_in[37:5], gpio_in[0]}), //In general, GPIO 4:1 should not be used but can be. Ask a TA if needed
+        .gpio_out({gpio_out[37:5], gpio_out[0]}), //In general, GPIO 4:1 should not be used but can be. Ask a TA if needed
+        .gpio_oeb({gpio_oeb[37:5], gpio_oeb[0]}), //In general, GPIO 4:1 should not be used but can be. Ask a TA if needed
+        // .gpio_in({gpio_in[35:5], gpio_in[0]}), //In general, GPIO 4:1 should not be used but can be. Ask a TA if needed
+        // .gpio_out({gpio_out[35:5], gpio_out[0]}), //In general, GPIO 4:1 should not be used but can be. Ask a TA if needed
+        // .gpio_oeb({gpio_oeb[35:5], gpio_oeb[0]}), //In general, GPIO 4:1 should not be used but can be. Ask a TA if needed
 
         // Add master ports
         .ADR_O(wbm_adr_o),
