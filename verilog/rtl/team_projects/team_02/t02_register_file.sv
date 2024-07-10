@@ -49,14 +49,14 @@ module t02_register_file
             end
         end
         else begin
-            for (int i = 1; i < 32; i++) begin
+            for (int i = 1; i < 30; i++) begin
                 register[i] <= nxt_register[i];
             end
         end
     end
 
     always_comb begin
-        for (int i = 0; i < 32; i++) begin
+        for (int i = 0; i < 30; i++) begin
             nxt_register[i] = register[i];
         end
         
