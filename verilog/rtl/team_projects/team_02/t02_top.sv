@@ -5,7 +5,7 @@
 module t02_top (
 	input logic clk, nrst, enable,
   output logic [31:0] ramaddr, ramstore, 
-  //output logic Ren, Wen, 
+  output logic Ren, Wen, 
   input logic [31:0] ramload, start_addr,
   input logic busy_o
   // output logic lcd_en, lcd_rw, lcd_rs,
@@ -23,7 +23,8 @@ module t02_top (
  logic [19:0] imm;
  logic [31:0] memload, aluIn, aluOut, immOut, pc, writeData, regData1, regData2, instruction;
 
-
+assign Ren = 0;
+assign Wen = 0;
 
 //t02_mux aluMux(.in1(immOut), .in2(regData2), .en(aluSrc), .out(aluIn));
 
@@ -52,4 +53,6 @@ module t02_top (
 //ru_ram rram (.clk(clk), .nRst(nrst), .write_enable(write_enable), .addr(addr), .data_in(datain), .data_out(dataout), .busy(busy_o));
 //ram ra(.clk(clk), .nRst(nrst), .write_enable(memWrite), .read_enable(1), .address_DM(aluOut[5:0]), .address_IM(pc[5:0]), .data_in(regData2), .data_out(memload), .instr_out(instruction), .pc_enable(i_ready), .CUOp(cuOP));
 //assign instruction_out = instruction;
+
+
 endmodule
