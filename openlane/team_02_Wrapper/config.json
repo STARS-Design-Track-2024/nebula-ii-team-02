@@ -9,7 +9,7 @@
 
 
         "dir::../../verilog/rtl/team_projects/team_02/t02_alu.sv",
-        "dir::../../verilog/rtl/team_projects/team_02/t02_button.sv",
+        "dir::../../verilog/rtl/team_projects/team_02/t02_button.v",
         "dir::../../verilog/rtl/team_projects/team_02/t02_control.sv",
         "dir::../../verilog/rtl/team_projects/team_02/t02_edgeDetector.sv",
         "dir::../../verilog/rtl/team_projects/team_02/t02_keypad.v",
