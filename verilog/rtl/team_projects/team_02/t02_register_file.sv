@@ -37,20 +37,28 @@ module t02_register_file
     output logic [31:0] read_data1, read_data2
 );
 
-    logic [31:0][31:0] register ;
-    logic [31:0][31:0] nxt_register;
+    logic [31:0] register [31:0];
+    logic [31:0] nxt_register [31:0];
 
-    always_ff @(posedge clk, negedge nRST) begin
+    always_ff @(posedge clk or negedge nRST) begin
         if (!nRST) begin
-            register[31:0] <= '0;
+            for (int i = 0; i < 32; i ++) begin
+                for (int j = 0; j < 32; j++) begin
+                    register[i][j] <= 1'b0;
+                end
+            end
         end
         else begin
-            register <= nxt_register;
+            for (int i = 1; i < 32; i++) begin
+                register[i] <= nxt_register[i];
+            end
         end
     end
 
     always_comb begin
-        nxt_register = register;
+        for (int i = 0; i < 32; i++) begin
+            nxt_register[i] = register[i];
+        end
         
         if (reg_write && (write_index != 5'b0)) begin
             nxt_register[write_index] = write_data;
