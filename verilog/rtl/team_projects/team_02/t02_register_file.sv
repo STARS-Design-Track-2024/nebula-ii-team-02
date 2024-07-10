@@ -42,7 +42,7 @@ module t02_register_file
 
     always_ff @(posedge clk or negedge nRST) begin
         if (!nRST) begin
-            for (int i = 0; i < 32; i ++) begin
+            for (int i = 0; i < 30; i ++) begin
                 for (int j = 0; j < 32; j++) begin
                     register[i][j] <= 1'b0;
                 end

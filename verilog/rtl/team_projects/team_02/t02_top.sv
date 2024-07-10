@@ -16,7 +16,7 @@ module t02_top (
   // output logic [31:0][31:0] test_memory ,
   // output logic [31:0][31:0] test_nxt_memory 
 );
- logic zero, negative, regWrite, aluSrc, d_ready, i_ready, memWrite, memRead, bruh;
+ logic zero, negative, regWrite, aluSrc, d_ready, i_ready, memWrite, memRead;
  logic [3:0] aluOP;
  logic [4:0] regsel1, regsel2, w_reg;
  logic [5:0] cuOP;
