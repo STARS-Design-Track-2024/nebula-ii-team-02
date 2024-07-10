@@ -37,8 +37,8 @@ module t02_register_file
     output logic [31:0] read_data1, read_data2
 );
 
-    logic [31:0] [31:0]register ;
-    logic [31:0] [31:0]nxt_register ;
+    logic [31:0]register[31:0];
+    logic [31:0]nxt_register[31:0];
     always_comb begin
         nxt_register = register;
         read_data1 = register [read_index1];
@@ -51,7 +51,7 @@ module t02_register_file
     end
     always_ff @(posedge clk or negedge nRST) begin
         if (!nRST) begin
-            register <= '0;
+            register <= nxt_register;
         end
         else if (reg_write & en)begin
             register <= nxt_register;
