@@ -1,6 +1,6 @@
 module t02_memory_control
 (
-    input logic CLK, nRST, dmmRen, dmmWen, imemRen, busy_o,
+    input logic clk, nRST, dmmRen, dmmWen, imemRen, busy_o,
     input logic [31:0] imemaddr, dmmaddr, dmmstore, ramload,
     output logic i_ready, d_ready, Ren, Wen, 
     output logic [31:0] ramaddr, ramstore, imemload, dmmload
@@ -8,7 +8,7 @@ module t02_memory_control
 logic [31:0] prev_dmmaddr, prev_dmmstore, prev_imemload;
 logic d_wait, next_i_wait, i_wait;
 
-always_ff@(posedge CLK, negedge nRST) begin
+always_ff@(posedge clk, negedge nRST) begin
     if(!nRST) begin
         prev_dmmaddr <= 32'b0;
         prev_dmmstore <= 32'b0;
