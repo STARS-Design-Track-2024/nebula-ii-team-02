@@ -53,17 +53,17 @@ external_interface:
     description: Output Enable from the Logic Analyzer
   - name: gpio_in
     port: gpio_in
-    width: 34
+    width: 32
     direction: input
     description: Inputs from GPIO
   - name: gpio_out
     port: gpio_out
-    width: 34
+    width: 32
     direction: output
     description: Outputs to GPIO
   - name: gpio_oeb
     port: gpio_oeb
-    width: 34
+    width: 32
     direction: output
     description: Output enables to GPIO
   - name: ADR_O
