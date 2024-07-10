@@ -1,5 +1,5 @@
 {
-    "DESIGN_NAME": "top",
+    "DESIGN_NAME": "t02_top",
     "DESIGN_IS_CORE": 0,
     "VERILOG_FILES": [
         "dir::../../verilog/rtl/wb_wrapper.vh",
