@@ -11,7 +11,6 @@ module team_02 (
     input logic clk, nrst,
     
     input logic en, //This signal is an enable signal for your chip. Your design should disable if this is low.
-    input logic [31:0] start_addr,
 
     // Logic Analyzer - Grant access to all 128 LA
     input wire [127:0] la_data_in,
@@ -50,11 +49,7 @@ module team_02 (
     */
     logic [31:0] ramstore, ramaddr, ramload;
     logic Ren, Wen, busy_o;
-    t02_top top (.clk(clk), .nrst(nrst), .ramaddr(ramaddr), .ramstore(ramstore), 
-    .Ren(Ren), .Wen(Wen), .ramload(ramload), .busy_o(busy_o), .enable(en), 
-    .start_addr(start_addr), .lcd_en(gpio_out[6]), .lcd_rw(gpio_out[5]), 
-    .lcd_rs(gpio_out[0]), .lcd_data(gpio_out[14:7]), .read_row(gpio_out[27:24]), 
-    .scan_col(gpio_in[23:20]));
+    t02_top top (.clk(clk), .nrst(nrst), .ramaddr(ramaddr), .ramstore(ramstore), .Ren(Ren), .Wen(Wen), .ramload(ramload), .busy_o(busy_o), .enable(en));
     // add start_addr 
     // make sure all signals are connected
     t02_wishbone_manager wb(.CLK(clk), .nRST(nrst), 

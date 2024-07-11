@@ -1,4 +1,3 @@
-
 module t02_request_unit
 (
     input logic CLK, nRST, i_ready_i, d_ready, 
@@ -14,12 +13,13 @@ typedef enum logic [5:0] {
 		CU_LB, CU_LH, CU_LW, CU_LBU, CU_LHU, CU_SB, CU_SH, CU_SW, 
 		CU_ADDI, CU_SLTI, CU_SLTIU, CU_SLIU, CU_XORI, CU_ORI, CU_ANDI, CU_SLLI, CU_SRLI, CU_SRAI, 
 		CU_ADD, CU_SUB, CU_SLL, CU_SLT, CU_SLTU, CU_XOR, CU_SRL, CU_SRA, CU_OR, CU_AND,
-		CU_ERROR
+		CU_ERROR, CU_HALT
 	} cuOPType;	
 logic nxt_dmmRen, nxt_dmmWen;
-assign imemRen = 1; //THISH LINE
+
+
 always_ff@(posedge CLK, negedge nRST) begin
-    if (~nRST) begin
+    if (!nRST) begin
         dmmRen <= 0;
         dmmWen <= 0; 
     end
@@ -29,6 +29,11 @@ always_ff@(posedge CLK, negedge nRST) begin
     end
 end
 always_comb begin
+    // if (cuOP == CU_HALT) begin
+    // imemRen = 0;
+    // end else begin
+    imemRen = 1;
+    // end
     if (i_ready_i) begin
         if(cuOP == CU_LB| cuOP == CU_LH| cuOP == CU_LW | cuOP == CU_LBU | cuOP == CU_LHU) begin
         nxt_dmmRen = 1; 
@@ -50,32 +55,12 @@ always_comb begin
         nxt_dmmWen = 0;
     end
 end
-always_ff@(posedge CLK, negedge nRST) begin
-    if(!nRST) begin
-        imemaddro <= 0;
-        dmmaddro <= 0;
-        dmmstoreo <= 0;
-        imemloado <= 0;
-        dmmloado <= 0;
-        i_ready_o <= 0;
-        d_ready_o <= 0;
-    end
-    else begin 
-        imemaddro <= imemaddri; 
-        dmmaddro <= dmmaddri; 
-        dmmstoreo <= dmmstorei;
-        imemloado <= imemloadi;
-        dmmloado <= dmmloadi;
-        i_ready_o <= i_ready_i;
-        d_ready_o <= d_ready;
-    end
-end
 
-// assign imemaddro = imemaddri; 
-// assign dmmaddro = dmmaddri; 
-// assign dmmstoreo = dmmstorei;
-// assign imemloado = imemloadi;
-// assign dmmloado = dmmloadi;
-// assign i_ready_o = i_ready_i;
-// assign d_ready_o = d_ready;
- endmodule
+assign imemaddro = imemaddri; 
+assign dmmaddro = dmmaddri; 
+assign dmmstoreo = dmmstorei;
+assign imemloado = imemloadi;
+assign dmmloado = dmmloadi;
+assign i_ready_o = i_ready_i;
+assign d_ready_o = d_ready;
+endmodule
