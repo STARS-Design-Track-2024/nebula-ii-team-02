@@ -219,6 +219,7 @@ module team_02_tb;
 
 //Enter 111 + 222 = 333
 	testNum = testNum + 1;
+	validated = 0;
 	//NUM1
 			press_button(4'h1, 4'h1); //enter 1
 			@(negedge clock);
@@ -226,13 +227,13 @@ module team_02_tb;
 			@(negedge clock);
 			press_button(4'h1, 4'h1);
 			@(negedge clock);
-			press_button(4'h8, 4'h1); //confirm key
+			press_button(4'h8, 4'h4); //confirm key
 			@(negedge clock);
 
 	//OPSEL
 			press_button(4'h1, 4'h8);//addition(A)
 			@(negedge clock);
-			press_button(4'h8, 4'h1);//confirm key
+			press_button(4'h8, 4'h4);//confirm key
 			@(negedge clock);
 
 	//NUM2
@@ -252,16 +253,130 @@ module team_02_tb;
 
 			#(25);
 	//CHECK OUTPUT
-			check_lcd(24'h313131, 24'hB2A0A0, 24'h323232, 24'h333333);
+			check_lcd(24'h313131, 24'h2BA0A0, 24'h323232, 24'h333333);
 			if (validated == 1)
 			$display ("Test %0d passed!", testNum);
 
+//Enter 321 - 123 = 198
+	testNum = testNum + 1;
+	validated = 0;
+	//NUM1
+			press_button(4'h1, 4'h3); //enter 1
+			@(negedge clock);
+			press_button(4'h1, 4'h2);
+			@(negedge clock);
+			press_button(4'h1, 4'h1);
+			@(negedge clock);
+			press_button(4'h8, 4'h4); //confirm key
+			@(negedge clock);
 
+	//OPSEL
+			press_button(4'h2, 4'h8);//subtraction(B)
+			@(negedge clock);
+			press_button(4'h8, 4'h4);//confirm key
+			@(negedge clock);
 
-		// #(lcdOut == 8'h31);
-		// #(lcdOut == 8'hB2);
-		// #(lcdOut == 8'h32);
-		// #(lcdOut == 8'h33);
+	//NUM2
+			press_button(4'h1, 4'h1);
+			@(negedge clock);
+			press_button(4'h1, 4'h2);
+			@(negedge clock);
+			press_button(4'h1, 4'h3);
+			@(negedge clock);
+			press_button(4'h1, 4'h2);
+			@(negedge clock);
+
+	//RESULT
+			#(1000);
+			press_button(4'h1, 4'h1);
+			@(negedge clock);
+
+			#(25);
+	//CHECK OUTPUT
+			check_lcd(24'h333231, 24'h2DA0A0, 24'h313233, 24'h313938);
+			if (validated == 1)
+			$display ("Test %0d passed!", testNum);
+
+//Enter 24 * 18 = 432
+	testNum = testNum + 1;
+	validated = 0;
+	//NUM1
+			press_button(4'h8, 4'h2); //enter 0
+			@(negedge clock);
+			press_button(4'h1, 4'h2);
+			@(negedge clock);
+			press_button(4'h2, 4'h1);
+			@(negedge clock);
+			press_button(4'h8, 4'h4); //confirm key
+			@(negedge clock);
+
+	//OPSEL
+			press_button(4'h4, 4'h8);//multiplication(C)
+			@(negedge clock);
+			press_button(4'h8, 4'h4);//confirm key
+			@(negedge clock);
+
+	//NUM2
+			press_button(4'h8, 4'h2);
+			@(negedge clock);
+			press_button(4'h1, 4'h1);
+			@(negedge clock);
+			press_button(4'h4, 4'h2);
+			@(negedge clock);
+			press_button(4'h8, 4'h4);
+			@(negedge clock);
+
+	//RESULT
+			#(1000);
+			press_button(4'h1, 4'h1);
+			@(negedge clock);
+
+			#(25);
+	//CHECK OUTPUT
+			check_lcd(24'h303234, 24'h78A0A0, 24'h303138, 24'h343332);
+			if (validated == 1)
+			$display ("Test %0d passed!", testNum);
+
+//Enter 120 / 6 = 20
+	testNum = testNum + 1;
+	validated = 0;
+	//NUM1
+			press_button(4'h1, 4'h1); //enter 1
+			@(negedge clock);
+			press_button(4'h1, 4'h2);
+			@(negedge clock);
+			press_button(4'h8, 4'h2);
+			@(negedge clock);
+			press_button(4'h8, 4'h4); //confirm key
+			@(negedge clock);
+
+	//OPSEL
+			press_button(4'h8, 4'h8);//Division(D)
+			@(negedge clock);
+			press_button(4'h8, 4'h4);//confirm key
+			@(negedge clock);
+
+	//NUM2
+			press_button(4'h8, 4'h2);
+			@(negedge clock);
+			press_button(4'h8, 4'h2);
+			@(negedge clock);
+			press_button(4'h2, 4'h4);
+			@(negedge clock);
+			press_button(4'h8, 4'h4);//confirm key
+			@(negedge clock);
+
+	//RESULT
+			#(1000);
+			press_button(4'h1, 4'h1);
+			@(negedge clock);
+
+			#(25);
+	//CHECK OUTPUT
+			check_lcd(24'h313230, 24'hFDA0A0, 24'h303036, 24'h303230);
+			if (validated == 1)
+			$display ("Test %0d passed!", testNum);
+	
 
 
 		`ifdef GL
