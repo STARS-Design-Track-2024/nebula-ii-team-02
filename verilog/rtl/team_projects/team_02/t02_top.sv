@@ -45,6 +45,27 @@ t02_signExtender signex(.imm(imm), .immOut(immOut), .CUOp(cuOP));
 
 t02_request ru(.CLK(clk), .nRST(nrst), .imemload(instruction), .imemaddr(pc), .dmmaddr(aluOut), .dmmstore(regData2), .ramaddr(ramaddr), .ramload(ramload), .ramstore(ramstore), 
 .cuOP(cuOP), .Wen(Wen), .busy_o(busy_o), .dmmload(memload), .i_ready(i_ready), .d_ready(d_ready),.Ren(Ren), .en(enable));
+// ^our own
+
+// t02_new_request_unit ru(.clk(clk),
+// 									 .nRST(nrst),
+// 									//  .DataRead(memRead), 
+// 									//  .DataWrite(memWrite),
+// 									 .cuOP(cuOP),
+// 									 .DataAddress(aluOut),
+// 									 .InstrAddress(pc),
+// 									 .DataToWrite(regData2),
+// 									 .ihit(i_ready),
+// 									 .FetchedData(memload),
+// 									 .FetchedInstr(instruction),
+// 									 .busy_o(busy_o),
+// 									 .cpu_dat_o(ramload),
+// 									 .write_i(Wen),
+// 									 .read_i(Ren),
+// 									 .dhit(d_ready),
+// 									 .cpu_dat_i(ramstore),
+// 									 .adr_i(ramaddr)
+// ); 
 
 // t02_edgeDetector edg2(.clk(clk), .nRst_i(nrst), .button_i(~keyStrobe), .button_p(enData));
 // t02_keypad pad (.clk(clk), .rst(nrst), .receive_ready(keyStrobe), .data_received(halfData), .read_row(read_row), .scan_col(scan_col));

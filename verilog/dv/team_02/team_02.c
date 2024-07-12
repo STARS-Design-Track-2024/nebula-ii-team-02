@@ -159,15 +159,15 @@ void main()
     // *(&sram_space + 4) = 0x00a00413;
     //  *(&sram_space + 5) = 0xffffffff;
 
-    *(&sram_space ) = 0x3e800093;
-    *(&sram_space + 1) = 0x7d008113;
-    *(&sram_space + 2) = 0x3e800093;
-	*(&sram_space + 3) = 0x0080006f; //j
-    *(&sram_space + 4) = 0x00800393;
-    *(&sram_space + 5) = 0x00a00413;
-     *(&sram_space + 6) = 0xffffffff;
-
-
+  //   *(&sram_space ) = 0x3e800093;
+  //   *(&sram_space + 1) = 0x7d000113;
+  //   *(&sram_space + 2) = 0x001101b3;
+	// // *(&sram_space + 3) = 0x0640e193; //j
+  // //   *(&sram_space + 4) = 0x0c80f213;
+  // //   *(&sram_space + 5) = 0x03211293;
+  // //    *(&sram_space + 6) = 0x0021d313;
+	// // 	*(&sram_space + 7) = 0x40325393;
+	// 	*(&sram_space + 3) = 0xffffffff;
 
 	// *(&sram_space + 4) = 0xff9ff1ef;
 
@@ -180,6 +180,30 @@ void main()
     // *(&sram_space + 5) = 0x00a00413;
     //  *(&sram_space + 6) = 0xffffffff;
 
+
+//testing branch
+
+    // *(&sram_space ) = 0x7d000093;
+    // *(&sram_space + 1) = 0x7d000113;
+    // *(&sram_space + 2) = 0x00208463;
+    // *(&sram_space + 3) = 0x3e800213;
+    // *(&sram_space + 4) = 0x3e800293;
+    //  *(&sram_space + 5) = 0xffffffff;
+
+
+//testing branch
+    // *(&sram_space ) = 0x3e800093;
+    // *(&sram_space + 1) = 0x02102023;
+    // *(&sram_space + 2) = 0x02002103;
+    // *(&sram_space + 3) = 0x00f10113;
+    //  *(&sram_space + 4) = 0xffffffff;
+
+	// just store 	 
+*(&sram_space ) = 0x3e800093;
+*(&sram_space + 1) = 0x7d000113;
+*(&sram_space + 2) = 0x02102023;
+*(&sram_space + 3) = 0x04202023;
+  *(&sram_space + 4) = 0xffffffff;
 	// Set start address
     reg_tem_02_start_address = 0x33000000;
 

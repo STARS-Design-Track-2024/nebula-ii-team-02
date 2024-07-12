@@ -71,3 +71,5 @@
 -v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_02/t02_writeToReg.sv
 -v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_02/team_02_WB.v
 -v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_02/team_02_Wrapper.sv
+#-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_02/t01_request_unit.sv
+-v $(USER_PROJECT_VERILOG)/rtl/team_projects/team_02/t02_new_request_unit.sv
